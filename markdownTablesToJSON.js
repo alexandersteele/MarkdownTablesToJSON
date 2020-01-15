@@ -1,8 +1,10 @@
-// Markdown to JSON Application V1.0
+// Markdown to JSON Application V1.1
 const fs = require('fs');
-const filename = "markdown";
+const readline = require('readline-sync');
 
-fs.readFile(`${filename}.txt`, (err, data) => {
+let filename = readline.question("Markdown filename: ");
+
+fs.readFile(filename, (err, data) => {
     if (err) throw err;
 
     data = data.toString().split('\n');
@@ -10,7 +12,7 @@ fs.readFile(`${filename}.txt`, (err, data) => {
     const headers = headerSerializer(data);
     const markdown_data = bodySerializer(headers, data);
 
-    writeFile(markdown_data);
+    writeFile(markdown_data, filename);
 });
 
 const headerSerializer = (data) => {
@@ -32,8 +34,10 @@ const bodySerializer = (headers, data) => {
         });
 }
 
-const writeFile = (markdown_data) => {
-    fs.writeFile(`markdown.json`, JSON.stringify(markdown_data), (err) => {
+const writeFile = (markdown_data, filename) => {
+    filename = filename.split('.')[0]; // Remove filename extension
+    fs.writeFile(`${filename}.json`, JSON.stringify(markdown_data), (err) => {
         if (err) throw err;
+        console.log("SUCCESS")
     });
 }

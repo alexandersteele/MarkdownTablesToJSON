@@ -1,0 +1,24 @@
+{
+  "name": "markdowntojson",
+  "version": "1.1",
+  "description": "MarkdownToJSON is a JavaScript (Node.js) application for converting text-file markdown  tables to a JSON file.",
+  "main": "markdownTablesToJSON.js",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node markdownTablesToJSON",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandersteele/MarkdownTablesToJSON.git"
+  },
+  "author": "Alexander Steele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexandersteele/MarkdownTablesToJSON/issues"
+  },
+  "homepage": "https://github.com/alexandersteele/MarkdownTablesToJSON#readme"
+}
