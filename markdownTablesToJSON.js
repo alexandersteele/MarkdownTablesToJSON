@@ -24,20 +24,21 @@ const headerSerializer = (data) => {
 const bodySerializer = (headers, data) => {
     return data.map(x => x.replace('\t', '').split('|').filter(x => x !== ''))
         .filter((x, index) => index >= 2)
-        .map(line => {
-            const obj = {};
-            headers.forEach((header, index) => {
+        .map(line =>  headers.reduce((obj, header, index) => {
+                // Reduce (header: line) key-value pairs into object
+                
+                
                 obj[header] = line[index].trim();
-            });
-
-            return obj;
-        });
+                return obj;
+                
+            }, {})
+        );
 }
 
 const writeFile = (markdown_data, filename) => {
     filename = filename.split('.')[0]; // Remove filename extension
     fs.writeFile(`${filename}.json`, JSON.stringify(markdown_data), (err) => {
         if (err) throw err;
-        console.log("SUCCESS")
+        console.log("SUCCESS");
     });
 }
