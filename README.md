@@ -4,18 +4,15 @@ MarkdownToJSON is a JavaScript (Node.js) application for converting text-file ma
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [npm]to install MarkdownTablesToJSON.
 
 ```bash
 npm i
-node markdownTablesToJSON
+npm start
 ```
 
 ## Usage
-
-```javascript
-const filename = "markdown";
-```
+Use CLI to input filename of markdown table.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
